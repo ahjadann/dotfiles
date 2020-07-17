@@ -61,6 +61,7 @@ set ruler
 set number
 set showcmd
 set linebreak
+set laststatus=2
 "set scrolloff=4
 set noerrorbells visualbell t_vb= " no beeps of any kind
 set winminheight=0
