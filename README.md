@@ -11,5 +11,7 @@ Nothing too fancy here because restrictions.
 
 ## Home
 
+No plug ins for vim or frameworks for zsh as of yet.
+
 - .vimrc
 - .zshrc
