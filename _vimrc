@@ -28,6 +28,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'morhetz/gruvbox'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -143,11 +145,13 @@ else
 
 	set background=dark
 	if exists(":colorscheme")
-		colorscheme default
+		"colorscheme default
+		colorscheme gruvbox
 	endif
 endif
 
 syntax on
+let g:airline#extensions#tabline#enabled = 1
 "if exists(":filetype")
 "	filetype plugin indent on
 "	runtime ftplugin/man.vim " to have :Man available
