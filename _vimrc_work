@@ -1,3 +1,4 @@
+" File based on https://github.com/amix/vimrc
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -5,7 +6,7 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -35,7 +36,7 @@ Plugin 'morhetz/gruvbox'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -56,19 +57,69 @@ set number
 set showcmd
 set linebreak
 set laststatus=2
-"set scrolloff=4
+set scrolloff=4
 set noerrorbells visualbell t_vb= " no beeps of any kind
 set winminheight=0
 set splitbelow
 set confirm
-set history=2000 " 100x the default
+set history=500 " 100x the default
 
+" Turn on the wild menu
+set wildmenu
+
+" Height of the command bar
+set cmdheight=1
+
+" A buffer becomes hidden when it is abandoned
+set hid
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
 set incsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" Add a bit extra margin to the left
+set foldcolumn=1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+" Auto indent
+set ai
+" Smart indent
+set si
+" Wrap lines
+set wrap
+
 set autoindent
 set smartindent
 set textwidth=0
-set tabstop=4
-set shiftwidth=4
 set softtabstop=4
 set isfname+=/,.
 set backspace=2 " indent,eol,start
@@ -77,51 +128,75 @@ set colorcolumn=79
 set mouse=a
 set nomousehide
 
-if has("gui_running")
-	set columns=140 lines=45
-	if has("gui_gtk2")
-"		set guioptions-=tT
-"		set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
-		set guifont=Monospace\ 8
-		colorscheme gruvbox
-	elseif has("gui_win32")
-		"set guioptions-=tT
-		colorscheme gruvbox
-		set guifont=Consolas
-	endif
-else
-	 "enable Xterm mouse wheel scrolling
-	map  <xCSI>[62~ <MouseDown>
-	map! <xCSI>[62~ <MouseDown>
-	map  <xCSI>[63~ <MouseUp>
-	map! <xCSI>[63~ <MouseUp>
-	map  <xCSI>[64~ <S-MouseDown>
-	map! <xCSI>[64~ <S-MouseDown>
-	map  <xCSI>[65~ <S-MouseUp>
-	map! <xCSI>[65~ <S-MouseUp>
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
 
-	set background=dark
-	if exists(":colorscheme")
-		colorscheme gruvbox
-	endif
-endif
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
 
-syntax on
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
 
 " https://vim.fandom.com/wiki/Using_vim_color_schemes_with_Putty
 if &term =~ "xterm"
-	" 256 colors
-	let &t_Co = 256
-	"restore screen after quitting
-	let &t_ti = "\<Esc>7\<Esc>[r\<Esc>[?47h"
-	let &t_te = "\<Esc>[?471\<Esc>8"
-	if has("terminfo")
-		let &t_Sf = "\<Esc>[3%p1%dm"
-		let &t_Sb = "\<Esc>[4%p1%dm"
-	else
-		let &t_Sf = "\<Esc>[3%dm"
-		let &t_Sb = "\<Esc>[4%dm"
-	endif
+    " 256 colors
+    let &t_Co = 256
+    "restore screen after quitting
+    let &t_ti = "\<Esc>7\<Esc>[r\<Esc>[?47h"
+    let &t_te = "\<Esc>[?471\<Esc>8"
+    if has("terminfo")
+        let &t_Sf = "\<Esc>[3%p1%dm"
+        let &t_Sb = "\<Esc>[4%p1%dm"
+    else
+        let &t_Sf = "\<Esc>[3%dm"
+        let &t_Sb = "\<Esc>[4%dm"
+    endif
 endif
+
+" Airline specifics
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='gruvbox'
+
+" Gruvbox specifics
+" Italic: https://apple.stackexchange.com/questions/266333/how-to-show-italic-in-vim-in-iterm2
+let g:gruvbox_bold=1
+let g:gruvbox_italic=1
+let g:gruvbox_unterline=1
+let g:gruvbox_undercurl=1
+let g:gruvbox_italicize_comments=1
+
+if has("gui_running")
+    set columns=140 lines=45
+    if has("gui_gtk2")
+        " set guioptions-=tT
+        " set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+        set guifont=Monospace\ 8
+        colorscheme gruvbox
+    elseif has("gui_win32")
+        " set guioptions-=tT
+        colorscheme gruvbox
+        set guifont=Consolas
+    endif
+else
+    " enable Xterm mouse wheel scrolling
+    map  <xCSI>[62~ <MouseDown>
+    map! <xCSI>[62~ <MouseDown>
+    map  <xCSI>[63~ <MouseUp>
+    map! <xCSI>[63~ <MouseUp>
+    map  <xCSI>[64~ <S-MouseDown>
+    map! <xCSI>[64~ <S-MouseDown>
+    map  <xCSI>[65~ <S-MouseUp>
+    map! <xCSI>[65~ <S-MouseUp>
+
+    set background=dark
+    if exists(":colorscheme")
+        colorscheme gruvbox
+    endif
+endif
+
+syntax on
