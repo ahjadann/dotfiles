@@ -62,13 +62,17 @@ set noerrorbells visualbell t_vb= " no beeps of any kind
 set winminheight=0
 set splitbelow
 set confirm
-set history=500 " 100x the default
+set history=500
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=50
 
 " Turn on the wild menu
 set wildmenu
 
-" Height of the command bar
-set cmdheight=1
+" Give more space for displaying messages.
+set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -117,14 +121,26 @@ set si
 " Wrap lines
 set wrap 
 
+set autoread
 set autoindent
+set background=dark
+set ruler
 set smartindent
 set textwidth=0
 set softtabstop=4
 set isfname+=/,.
-set backspace=2 " indent,eol,start
+set backspace=indent,eol,start
 set nojoinspaces
 set colorcolumn=79
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+let g:gruvbox_contrast_dark = 'hard'
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+" let g:gruvbox_invert_selection='0'
+
 set mouse=a
 set nomousehide
 
@@ -177,7 +193,6 @@ else
     map  <xCSI>[65~ <S-MouseUp>
     map! <xCSI>[65~ <S-MouseUp>
 
-    set background=dark
     if exists(":colorscheme")
         colorscheme gruvbox
     endif
