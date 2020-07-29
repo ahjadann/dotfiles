@@ -54,6 +54,7 @@ filetype plugin indent on    " required
 " safeguard for re-sourcing
 autocmd!
 set number
+set relativenumber
 set showcmd
 set linebreak
 set laststatus=2
