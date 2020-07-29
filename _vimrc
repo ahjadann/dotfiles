@@ -115,11 +115,11 @@ set lbr
 set tw=500
 
 " Auto indent
-set ai 
+set ai
 " Smart indent
-set si 
+set si
 " Wrap lines
-set wrap 
+set wrap
 
 set autoread
 set autoindent
@@ -199,4 +199,3 @@ else
 endif
 
 syntax on
-
