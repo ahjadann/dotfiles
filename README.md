@@ -9,7 +9,7 @@ Nothing too fancy because restrictions.
 - .vimrc
 - .bashrc
 
-## /home
+## /private
 
 Plugins for **.vimrc** managed by [Vundle](https://github.com/VundleVim/Vundle.vim):
 
