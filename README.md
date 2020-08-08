@@ -2,14 +2,14 @@
 
 These are the dot files I use at work and at home.
 
-## Work
+## /work
 
-Nothing too fancy here because restrictions.
+Nothing too fancy because restrictions.
 
 - .vimrc
 - .bashrc
 
-## Home
+## /home
 
 Plugins for **.vimrc** managed by [Vundle](https://github.com/VundleVim/Vundle.vim):
 
