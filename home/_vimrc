@@ -31,7 +31,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'morhetz/gruvbox'
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'arcticicestudio/nord-vim'
+"Plugin 'ycm-core/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -73,7 +74,7 @@ set updatetime=50
 set wildmenu
 
 " Give more space for displaying messages.
-set cmdheight=2
+" set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -132,7 +133,7 @@ set softtabstop=4
 set isfname+=/,.
 set backspace=indent,eol,start
 set nojoinspaces
-set colorcolumn=79
+set colorcolumn=88
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -161,7 +162,8 @@ set noswapfile
 
 " Airline specifics
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='gruvbox'
+"let g:airline_theme='gruvbox'
+let g:airline_theme='nord'
 
 " Gruvbox specifics
 " Italic: https://apple.stackexchange.com/questions/266333/how-to-show-italic-in-vim-in-iterm2
@@ -195,7 +197,8 @@ else
     map! <xCSI>[65~ <S-MouseUp>
 
     if exists(":colorscheme")
-        colorscheme gruvbox
+        "colorscheme gruvbox
+        colorscheme nord
     endif
 endif
 

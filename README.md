@@ -13,7 +13,7 @@ Nothing too fancy because restrictions.
 
 Plugins for **.vimrc** managed by [Vundle](https://github.com/VundleVim/Vundle.vim):
 
-- Color scheme <https://github.com/morhetz/gruvbox>
+- Color scheme <https://github.com/arcticicestudio/nord-vim>
 - Plugin <https://github.com/vim-airline/vim-airline>
 - Plugin <https://github.com/vim-airline/vim-airline-themes>
 - Plugin <https://github.com/airblade/vim-gitgutter>
