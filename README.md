@@ -21,7 +21,7 @@ Plugins for **.vimrc** managed by [Vundle](https://github.com/VundleVim/Vundle.v
 
 Settings for **.zshrc**:
 
-- Prompt: [Spaceship Prompt](https://github.com/denysdovhan/spaceship-prompt)
+- Prompt: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - Framework: [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 - Activated Oh My Zsh plugins:
   - brew
